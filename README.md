@@ -2,7 +2,7 @@
 This User Management Service is a RESTful API that handles user information and data. 
 It allows users to Create, Read, Update, and Delete their profiles, as well as manage their account settings and preferences.
 
-# Functionality 
+## Functionality 
 The microservice provides the following functionality: 
 - **User registration:** allows new users to create a profile with their basic information, such as name, email, and password. 
 - **User authentication:** provides authentication mechanisms, such as email/password, JWT tokens, or OAuth, to ensure that only authorized users can access their account information. 
@@ -10,36 +10,36 @@ The microservice provides the following functionality:
 - **User data management:** allows users to manage their data, such as documents, images, or other files, that are associated with their profile or account. 
 - **User preferences:** allows users to manage their account settings and preferences, such as language, timezone, or notification settings. 
 
-# Testing
+## Testing
 To ensure the functionality and reliability of the microservice, it is recommended to perform the following types of testing: 
 - **Unit tests:** we ensure that each component and function of the microservice works correctly in isolation, by mocking dependencies and input/output parameters. 
 - **Integration tests:** we ensure that the microservice can interact with other services or systems, such as databases, messaging systems, or APIs, and produce the expected results. 
 - **End-to-end tests:** we ensure that the microservice can handle user requests and responses correctly, by simulating user interactions and testing different scenarios and edge cases. 
 
-# How to Use 
+## How to Use 
 To use this User Management service,  please follow these steps:
 
 - **1.** Clone the repository and install the dependencies: 
 
-git clone https://github.com/rohteemie/transafe_user_data_service.git
+`git clone https://github.com/rohteemie/transafe_user_data_service.git`
 
 cd user-management-service
 
-pip3 install 
+`pip3 install`
 
 
 - **2.** Configure the service settings: 
 
-source ENV/bin/activate
+`source ENV/bin/activate`
 
-pip3 freeze requirement.txt
+`pip install -r requirements.txt`
 
 In the .env file, you can set the environment variables for the service, such as the port number, the database connection string, the authentication provider, and other options.
 
 
 - **3.** Start the service:
 
-flask-app run 
+`flask-app run`
 
 This will start the service on the specified port, and it will listen for incoming requests. 
 
@@ -62,7 +62,7 @@ You can use a tool like Postman or cURL to send requests to the API endpoints an
 - **MIT LICENSE**
 This service is licensed under the MIT License. See the LICENSE file for more information. 
 
-# AUTHOR
+### AUTHOR
 - Rotimi
 - Olusegun
 - Pius
