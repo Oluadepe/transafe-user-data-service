@@ -62,7 +62,8 @@ You can use a tool like Postman or cURL to send requests to the API endpoints an
 - **MIT LICENSE**
 This service is licensed under the MIT License. See the LICENSE file for more information. 
 
-### AUTHOR
+### AUTHORS
+---
 <details>
 	<summary>Owolabi Rotimi</summary>
 	<ul>
