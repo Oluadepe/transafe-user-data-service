@@ -62,7 +62,32 @@ You can use a tool like Postman or cURL to send requests to the API endpoints an
 - **MIT LICENSE**
 This service is licensed under the MIT License. See the LICENSE file for more information. 
 
-### AUTHOR
-- Rotimi
-- Olusegun
-- Pius
+### AUTHORS
+---
+<details>
+	<summary>Owolabi Rotimi</summary>
+	<ul>
+	<li><a href="https://www.github.com/rohteemie">GitHub</a></li>
+	<li><a href="https://www.linkedin.com/in/rohteemie">LinkedIn</a></li>
+	<li><a href="https://www.twitter.com/rohteemie">Twitter</a></li>
+	<li><a href="mailto:iamrotimiowolabi@gmail.com">Email</a></l>
+	</ul>
+</details>
+<details>
+        <summary>Ajiboye Adeleye</summary>
+        <ul>
+        <li><a href="https://www.github.com/Adeleye080">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ajiboye-adeleye-b561a7211">LinkedIn</a></li>
+        <li><a href="https://www.twitter.com/AdeleyeAjiboye">Twitter</a></li>
+        <li><a href="mailto:ajiboyeadeleye080@gmail.com">Email</a></l>
+        </ul>
+</details>
+<details>
+        <summary>Olusegun Mayungbe</summary>
+        <ul>
+        <li><a href="https://www.github.com/Oluadepe">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/">LinkedIn</a></li>
+        <li><a href="https://www.twitter.com/">Twitter</a></li>
+        <li><a href="mailto:">Email</a></l>
+        </ul>
+</details>
