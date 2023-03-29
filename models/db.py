@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" """
+""" Database Management """
 from os import getenv
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
@@ -21,6 +21,7 @@ class Database:
         db_pwd = getenv('MYSQL_PWD')
         host = getenv('MYSQL_HOST')
 
+        # create connection engine
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
                                       .format(db_user, db_pwd, host, db),
                                       pool_pre_ping=True)
