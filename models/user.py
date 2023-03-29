@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-from .basic import Basic
+from .basic import Basic, Base
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
 
-Base = declarative_base()
-
-
 class User(Basic, Base):
+    """
+    'users' table column definitions
+    """
     __tablename__ = 'users'
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
@@ -19,6 +19,3 @@ class User(Basic, Base):
     dob_day = Column(Integer(128), nullable=False)
     dob_month = Column(Integer(128), nullable=False)
     dob_year = Column(Integer(128), nullable=False)
-
-clss  = User()
-print(clss)
