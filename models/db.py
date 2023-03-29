@@ -16,10 +16,10 @@ class Database:
         """
         initializes class with database information from work environment
         """
-        db = getenv('MYSQL_DB')
-        db_user = getenv('MYSQL_USER')
-        db_pwd = getenv('MYSQL_PWD')
-        host = getenv('MYSQL_HOST')
+        db = getenv('TRNSF_DB')
+        db_user = getenv('TRNSF_USER')
+        db_pwd = getenv('TRNSF_PWD')
+        host = getenv('TRNSF_HOST')
 
         # create connection engine
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
