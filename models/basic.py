@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """ Base class for transafe user service """
 from sqlalchemy import Column, String, DateTime
+from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from uuid import uuid4
 
+
+Base = declarative_base()
 
 class Basic:
     """
