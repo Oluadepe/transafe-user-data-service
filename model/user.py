@@ -35,7 +35,7 @@ class User(Basic, Base):
 
     def __setattr__(self, name, value):
         """sets a password by first encoding to bytes.
-           Then use bcrypt hashing, for secure staorable value
+           Then use bcrypt hashing, for secure staorable value.
         """
         if name == "password":
             value = value.encode()
