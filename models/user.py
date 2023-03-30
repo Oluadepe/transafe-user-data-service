@@ -1,11 +1,8 @@
-#!/usr/bin/python3
-from basic import Basic
-from flask import Column, String, Integer
+#!/usr/bin/env python3
+from .basic import Basic, Base
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 import bcrypt
-
-
-Base = declarative_base()
 
 
 class User(Basic, Base):
