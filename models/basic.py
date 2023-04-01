@@ -4,6 +4,7 @@ from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from uuid import uuid4
+import models
 
 
 Base = declarative_base()
@@ -36,17 +37,31 @@ class Basic:
             self.created_at = self.updated_at = datetime.utcnow()
 
     def __str__(self):
-        """ """
+        """
+        string representation of object
+        """
+        # can add string for logging
         pass
 
     def save(self):
-        """ """
-        pass
+        """
+        save/update current instance
+        """
+        self.updated_at = datetime.utcnow()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
-        """ """
-        pass
+        """
+        returns dictionary representation of object
+        """
+        dic = dict(self.__dict__)
+        dic["created_at"] = self.created_at.isoformat()
+        dic["updated_at"] = self.updated_at.isoformat()
+        if '_sa_instance_state' in dic.keys():
+            del dic['_sa_instance_state']
+        return dic
 
     def delete(self):
-        """ deletes instance """
-        pass
+        """ deletes instance object """
+        models.storage.delete(self)
