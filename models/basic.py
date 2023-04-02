@@ -40,8 +40,9 @@ class Basic:
         """
         string representation of object
         """
-        # can add string for logging
-        pass
+        return "[{:s}] with identity number: ({:s})\n{}\n{}\n{}".format(
+               self.__class__.__name__, self.id, '*' * 75, self.__dict__,
+               '*' * 75)
 
     def save(self):
         """
