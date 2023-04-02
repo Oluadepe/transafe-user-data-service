@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """ Database Management """
 from os import getenv
+from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from models.basic import Basic, Base
 from models.user import User
+
+
+load_dotenv()
 
 
 class Database:
@@ -26,22 +30,18 @@ class Database:
                                       .format(db_user, db_pwd, host, db),
                                       pool_pre_ping=True)
 
-    def all(self, cls=None):
+    def all(self):
         """
         returns dictionary of object
         """
         dic = {}
-        if cls:
-            if type(cls) is str:
-                cls = eval(cls)
-            try:
-                query = self.__session.query(cls)
-                for elem in query:
-                    dic[elem.id] = elem
-                return dic
-            except Exception:
-                return None
-
+        try:
+            query = self.__session.query(cls)
+            for elem in query:
+                dic[elem.id] = elem
+            return dic
+        except Exception:
+            return None
 
     def new(self, obj):
         """
@@ -54,6 +54,21 @@ class Database:
         save changes to database table
         """
         self.__session.commit()
+
+    def get(self, **kwargs):
+        """
+        Get user object based on ID or Email
+        """
+        try:
+            if 'id' not in kwargs and 'email' not in kwargs:
+                return None
+            if 'id' in kwargs:
+                obj = self.__session.query(User).filter_by(id=kwargs['id']).first()
+            if 'email' in kwargs:
+                obj = self.__session.query(User).filter_by(email=kwargs['email']).first()
+            return obj
+        except Exception:
+            return None
 
     def delete(self, obj=None):
         """
@@ -77,7 +92,7 @@ class Database:
         self.__session = Session()
 
     def close(self):
-        """ 
+        """
         Closes current database session
         """
         self.__session.close()
