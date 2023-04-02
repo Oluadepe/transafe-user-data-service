@@ -20,9 +20,9 @@ class User(Basic, Base):
     address = Column(String(256), nullable=False)
     phone = Column(String(128), nullable=False)
     gender = Column(String(128), nullable=False)
-    dob_day = Column(Integer(128), nullable=False)
-    dob_month = Column(Integer(128), nullable=False)
-    dob_year = Column(Integer(128), nullable=False)
+    dob_day = Column(Integer, nullable=False)
+    dob_month = Column(Integer, nullable=False)
+    dob_year = Column(Integer, nullable=False)
 
     def __init__(self, *args, **kwargs):
         """initializes user.
@@ -31,11 +31,16 @@ class User(Basic, Base):
         super().__init__(*args, **kwargs)
 
     def __setattr__(self, name, value):
-        """sets a password by first encoding to bytes.
-           Then use bcrypt hashing, for secure staorable value.
+        """
+        sets a password by first encoding to bytes.
+        Then use bcrypt hashing, for secure storable value.
         """
         if name == "password":
             value = value.encode()
             salt = bcrypt.gensalt()
-            hash_pwd = bcrypt.hashpw(value, salt)
-        self.__setattr__(name, hash_pwd)
+            value = bcrypt.hashpw(value, salt)
+        super().__setattr__(name, value)
+
+    def check_password(self, password):
+        """Check if the given password matches the stored hashed password"""
+        return bcrypt.checkpw(password.encode(), self.password)
