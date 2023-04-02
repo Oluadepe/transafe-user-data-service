@@ -27,16 +27,40 @@ class Database:
                                       pool_pre_ping=True)
 
     def all(self, cls=None):
-        """ """
-        pass
+        """
+        returns dictionary of object
+        """
+        dic = {}
+        if cls:
+            if type(cls) is str:
+                cls = eval(cls)
+            try:
+                query = self.__session.query(cls)
+                for elem in query:
+                    dic[elem.id] = elem
+                return dic
+            except Exception:
+                return None
+
 
     def new(self, obj):
-        """ """
-        pass
+        """
+        adds a new element to database session
+        """
+        self.__session.add(obj)
 
-    def save(self, obj):
-        """ """
-        pass
+    def save(self):
+        """
+        save changes to database table
+        """
+        self.__session.commit()
+
+    def delete(self, obj=None):
+        """
+        deletes an element in the table
+        """
+        if obj:
+            self.__session.delete(obj)
 
     def reload(self):
         """
