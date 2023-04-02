@@ -42,8 +42,10 @@ class Basic:
                '*' * 75)
 
     def save(self):
-        """ """
-        pass
+        """ update 'update time' and saves instance to database """
+        self.updated_at = datetime.now()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """ """
