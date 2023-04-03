@@ -36,7 +36,9 @@ class Basic:
             self.created_at = self.updated_at = datetime.now()
 
     def __str__(self):
-        """string representation of class """
+        """
+        string representation of object
+        """
         return "[{:s}] with identity number: ({:s})\n{}\n{}\n{}".format(
                self.__class__.__name__, self.id, '*' * 75, self.__dict__,
                '*' * 75)
