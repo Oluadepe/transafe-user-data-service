@@ -32,11 +32,11 @@ class Database:
 
     def all(self):
         """
-        returns dictionary of object
+        returns dictionary of all user
         """
         dic = {}
+        query = self.__session.query(User).all()
         try:
-            query = self.__session.query(cls)
             for elem in query:
                 dic[elem.id] = elem
             return dic
@@ -61,12 +61,17 @@ class Database:
         """
         try:
             if 'id' not in kwargs and 'email' not in kwargs:
-                return None
+                return 'this one'
             if 'id' in kwargs:
-                obj = self.__session.query(User).filter_by(id=kwargs['id']).first()
+                user = self.__session.query(
+                                            User).filter_by(
+                                            id=kwargs['id']).first()
+                return user
             if 'email' in kwargs:
-                obj = self.__session.query(User).filter_by(email=kwargs['email']).first()
-            return obj
+                user = self.__session.query(
+                                            User).filter_by(
+                                            email=kwargs['email']).first()
+                return user
         except Exception:
             return None
 
