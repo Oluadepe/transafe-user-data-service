@@ -30,7 +30,9 @@ def view_all_users():
         all_users.append(dic)
     return jsonify(all_users), 200
 
+
 @api_endpoint.route('/users', methods=['POST'])
+@jwt_required()
 def create_user():
     if request.headers.get('Content-Type') != 'application/json':
         return jsonify({'error': 'Invalid Content-Type'}), 400
@@ -74,7 +76,9 @@ def create_user():
         abort(400)
     return jsonify({'success': 'user created'}), 200
 
+
 @api_endpoint.route('/users/<string:char>', methods=['GET'])
+@jwt_required()
 def view_one_user(char):
     """
     view current based on session or ID
@@ -100,7 +104,9 @@ def view_one_user(char):
         abort(404)
     abort(400)
 
+
 @api_endpoint.route('/users/<string:ID>', methods=['DELETE'])
+@jwt_required()
 def delete_user(ID):
     """
     deletes a user based on given user ID
@@ -114,11 +120,13 @@ def delete_user(ID):
     if user:
         user.delete()
         models.storage.save()
+        # removed user cookie
         return jsonify({'success': 'user deleted successfully'}), 200
     abort(404)
 
 
 @api_endpoint.route('/users/<string:ID>', methods=['PUT'])
+@jwt_required()
 def update_user(ID):
     """
     update user details
@@ -153,9 +161,7 @@ def update_user(ID):
         user.address = address
     if email is not None:
         # use SMTP to validate and change user email
-        pass
- 
+        pass 
     user.save()
-
     return jsonify({'status': 'OK',
                     'message': 'user updated seccessfully'}), 200
