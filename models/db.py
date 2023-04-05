@@ -61,7 +61,7 @@ class Database:
         """
         try:
             if 'id' not in kwargs and 'email' not in kwargs:
-                return 'this one'
+                return None
             if 'id' in kwargs:
                 user = self.__session.query(
                                             User).filter_by(
