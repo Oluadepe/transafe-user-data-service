@@ -36,13 +36,12 @@ def view_all_users():
 def create_user():
     if request.headers.get('Content-Type') != 'application/json':
         return jsonify({'error': 'Invalid Content-Type'}), 400
-    
+
     # Check if all the required fields are present in the request
     required_fields = ['first_name', 'last_name', 'gender', 'address',
                        'email', 'phone', 'dob_day', 'dob_month', 'dob_year']
     if not all(field in request.json for field in required_fields):
-        #return jsonify({'error': 'Missing required fields'}), 400
-        abort(400)
+        return jsonify({'error': 'Missing required fields'}), 400
 
     # retrieve user data from request
     first_name = request.json.get('first_name')
@@ -54,7 +53,7 @@ def create_user():
     dob_day = request.json.get('dob_day')
     dob_month = request.json.get('dob_month')
     dob_year = request.json.get('dob_year')
-    
+
     # checks if user inputed right datatype for dob
     dob_ = [dob_day, dob_year, dob_month]
     if not all(isinstance(dob, int) for dob in dob_):
@@ -161,7 +160,7 @@ def update_user(ID):
         user.address = address
     if email is not None:
         # use SMTP to validate and change user email
-        pass 
+        pass
     user.save()
     return jsonify({'status': 'OK',
                     'message': 'user updated seccessfully'}), 200
