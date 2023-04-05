@@ -4,6 +4,6 @@ from flask import Blueprint
 Defined Blueprint
 """
 
-user_views = Blueprint('user_views', __name__, url_prefix='/api/vi')
+api_endpoint = Blueprint('user_views', __name__, url_prefix='/api/v1')
 
-from api.v1.users import *
+from api.v1.user import *
