@@ -16,7 +16,6 @@ class User(Basic, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     email = Column(String(128), nullable=False, unique=True)
-    password = Column(String(128), nullable=False)
     address = Column(String(256), nullable=False)
     phone = Column(String(128), nullable=False)
     gender = Column(String(128), nullable=False)
@@ -40,7 +39,3 @@ class User(Basic, Base):
             salt = bcrypt.gensalt()
             value = bcrypt.hashpw(value, salt)
         super().__setattr__(name, value)
-
-    def check_password(self, password):
-        """Check if the given password matches the stored hashed password"""
-        return bcrypt.checkpw(password.encode(), self.password)
