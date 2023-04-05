@@ -9,6 +9,7 @@ import models
 
 Base = declarative_base()
 
+
 class Basic:
     """
     Defines all common attributes and methods
