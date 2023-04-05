@@ -16,7 +16,6 @@ class User(Basic, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     email = Column(String(128), nullable=False, unique=True)
-    password = Column(String(128), nullable=False)
     address = Column(String(256), nullable=False)
     phone = Column(String(128), nullable=False)
     gender = Column(String(128), nullable=False)
@@ -29,18 +28,3 @@ class User(Basic, Base):
            Based on inherited values from the parent class
         """
         super().__init__(*args, **kwargs)
-
-    def __setattr__(self, name, value):
-        """
-        sets a password by first encoding to bytes.
-        Then use bcrypt hashing, for secure storable value.
-        """
-        if name == "password":
-            value = value.encode()
-            salt = bcrypt.gensalt()
-            value = bcrypt.hashpw(value, salt)
-        super().__setattr__(name, value)
-
-    def check_password(self, password):
-        """Check if the given password matches the stored hashed password"""
-        return bcrypt.checkpw(password.encode(), self.password)
