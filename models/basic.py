@@ -4,7 +4,6 @@ from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from uuid import uuid4
-import models
 
 
 Base = declarative_base()
@@ -16,8 +15,8 @@ class Basic:
     for all other models
     """
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
-    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
+    created_at = Column(DateTime, nullable=False, default=datetime.now())
+    updated_at = Column(DateTime, nullable=False, default=datetime.now())
 
     def __init__(self, *args, **kwargs):
         """ Initializes the basic class """
@@ -30,12 +29,12 @@ class Basic:
             if "id" not in kwargs:
                 self.id = str(uuid4())
             if "created_at" not in kwargs:
-                self.created_at = datetime.utcnow()
+                self.created_at = datetime.now()
             if "updated_at" not in kwargs:
-                self.updated_at = datetime.utcnow()
+                self.updated_at = datetime.now()
         else:
             self.id = str(uuid4())
-            self.created_at = self.updated_at = datetime.utcnow()
+            self.created_at = self.updated_at = datetime.now()
 
     def __str__(self):
         """
@@ -46,24 +45,15 @@ class Basic:
                '*' * 75)
 
     def save(self):
-        """
-        save/update current instance
-        """
-        self.updated_at = datetime.utcnow()
+        """ update 'update time' and saves instance to database """
+        self.updated_at = datetime.now()
         models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
-        """
-        returns dictionary representation of object
-        """
-        dic = dict(self.__dict__)
-        dic["created_at"] = self.created_at.isoformat()
-        dic["updated_at"] = self.updated_at.isoformat()
-        if '_sa_instance_state' in dic.keys():
-            del dic['_sa_instance_state']
-        return dic
+        """ """
+        pass
 
     def delete(self):
-        """ deletes instance object """
-        models.storage.delete(self)
+        """ deletes instance """
+        pass

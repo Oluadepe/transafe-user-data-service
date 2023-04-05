@@ -30,6 +30,8 @@ cd user-management-service
 
 - **2.** Configure the service settings:
 
+`python3 -m venv ENV`
+
 `source ENV/bin/activate`
 
 `pip3 install -r requirements.txt`
