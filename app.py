@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import jwt
 import models
+from dotenv import load_dotenv
 from os import getenv
 from api.v1 import api_endpoint
 from flask import Flask, jsonify
