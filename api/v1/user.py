@@ -57,7 +57,6 @@ def create_user():
     # checks if user inputed right datatype for dob
     dob_ = [dob_day, dob_year, dob_month]
     if not all(isinstance(dob, int) for dob in dob_):
-        print('another error')
         abort(400)
 
     # check if user already exists
