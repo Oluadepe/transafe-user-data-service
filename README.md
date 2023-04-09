@@ -3,16 +3,14 @@ This User Management Service is a RESTful API that handles user information and 
 It allows users to Create, Read, Update, and Delete their profiles, as well as manage their account settings and preferences.
 
 ## Functionality
----
+
 The microservice provides the following functionality:
 - [x] **User registration:** allows new users to create a profile with their basic information, such as name, email, and password.
 
 - [x] **User profile management:** allows users to update their profile information, such as their name, address, phone number.
-- [x] **User data management:** allows users to manage their data, such as documents, images, or other files, that are associated with their profile or account.
-<!-- - **User preferences:** allows users to manage their account settings and preferences, such as language, timezone, or notification settings. -->
 
 ## Testing
----
+
 To ensure the functionality and reliability of the microservice, it is recommended to perform the following types of testing.
 
 - [x] **Unit tests:** we ensure that each component and function of the microservice works correctly in isolation, by mocking dependencies and input/output parameters.
@@ -20,7 +18,7 @@ To ensure the functionality and reliability of the microservice, it is recommend
 - [x] **End-to-end tests:** we ensure that the microservice can handle user requests and responses correctly, by simulating user interactions and testing different scenarios and edge cases.
 
 ## How to Use
----
+
 To use this User Management service,  please follow these steps:
 
 - **1.** Clone the repository and install the dependencies:
@@ -161,13 +159,18 @@ terminal@terminal:~/transafe-user-data-service$
 
 All the above request methods except for `POST` works same way with `api/v1/users/me` endpoint using user session for authorization.
 
-## LICENSE
----
+## Future features:
+
+- User data management: allows users to manage their data, such as documents, images, or other files, that are associated with their profile or account.
+- User preferences: allows users to manage their account settings and preferences, such as language, timezone, or notification settings
+
+## License
+
 - **MIT LICENSE**
 This service is licensed under the MIT License. See the LICENSE file for more information.
 
-## AUTHORS
----
+## Authors
+
 <details>
 	<summary>Owolabi Rotimi</summary>
 	<ul>
