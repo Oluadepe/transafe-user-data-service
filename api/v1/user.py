@@ -63,6 +63,8 @@ def create_user():
     last_name = request.json.get('last_name')
     email = request.json.get('email')
     gender = request.json.get('gender')
+    if gender.lower() not in ['male', 'female']:
+        return jsonify({'error': 'Invalid gender type'})
     address = request.json.get('address')
     phone = request.json.get('phone')
     dob_day = request.json.get('dob_day')
@@ -211,9 +213,14 @@ def update_user(me_or_id):
         user.phone = phone
     if address is not None:
         user.address = address
+    if email is not None:
         if user.email == email:
             abort(409)
-        # use SMTP to confirm email change from user
+    # line below will be removed once email modification is enabled
+    if email is not None:
+        return jsonify({'error': 'cannot modify email address'}), 400
+
+    # use SMTP to confirm email change from user
     user.save()
     return jsonify({'status': 'success',
                     'message': 'user updated seccessfully'}), 200
