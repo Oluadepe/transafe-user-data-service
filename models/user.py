@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from .basic import Basic, Base
+from models.basic import Basic, Base
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
