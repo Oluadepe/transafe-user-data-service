@@ -19,13 +19,7 @@ To ensure the functionality and reliability of the microservice, it is recommend
 
 ## Style Guide
 
-This project follows the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide with the following exceptions:
-
-- Line length should be no more than 120 characters.
-- Indentation should use 4 spaces instead of tabs.
-- Variable and function names should be in `lowercase_with_underscores` format.
-- Class names are in `CapitalizedWords` format.
-- Unused imports and variables should be removed before committing code.
+This project follows the [PEP 8](https://www.python.org/dev/peps/pep-0008/)
 
 We use [pycodestyle](https://pycodestyle.pycqa.org/en/latest/) to enforce these style guidelines.
 
