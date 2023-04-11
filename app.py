@@ -6,10 +6,7 @@ from os import getenv
 from api.v1 import api_endpoint
 from werkzeug.datastructures import Headers
 from flask import Flask, jsonify, request
-from flask_jwt_extended import (
-        JWTManager, jwt_required, verify_jwt_in_request,
-        get_jwt
-        )
+from flask_jwt_extended import (JWTManager, verify_jwt_in_request, get_jwt)
 
 
 load_dotenv()
