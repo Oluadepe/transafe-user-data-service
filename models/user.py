@@ -2,7 +2,6 @@
 from .basic import Basic, Base
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
-import bcrypt
 
 
 class User(Basic, Base):

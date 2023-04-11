@@ -4,7 +4,6 @@ from os import getenv
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
-from models.basic import Basic, Base
 from models.user import User
 
 
