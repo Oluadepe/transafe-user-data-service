@@ -4,7 +4,7 @@ from os import getenv
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
-from models.basic import Basic, Base
+from models.basic import Base
 from models.user import User
 
 
@@ -26,7 +26,7 @@ class Database:
         host = getenv('TRNSF_HOST')
 
         # create connection engine
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
+        self.__engine = create_engine('mysql+mysqlconnector://{}:{}@{}/{}'
                                       .format(db_user, db_pwd, host, db),
                                       pool_pre_ping=True)
 

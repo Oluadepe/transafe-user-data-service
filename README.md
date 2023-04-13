@@ -17,6 +17,12 @@ To ensure the functionality and reliability of the microservice, it is recommend
 - [x] **Integration tests:** we ensure that the microservice can interact with other services or systems, such as databases, messaging systems, or APIs, and produce the expected results.
 - [x] **End-to-end tests:** we ensure that the microservice can handle user requests and responses correctly, by simulating user interactions and testing different scenarios and edge cases.
 
+## Style Guide
+
+This project follows the [PEP 8](https://www.python.org/dev/peps/pep-0008/)
+
+We use [pycodestyle](https://pycodestyle.pycqa.org/en/latest/) to enforce these style guidelines.
+
 ## How to Use
 
 To use this User Management service,  please follow these steps:
